@@ -1,6 +1,6 @@
-
 const container = document.getElementById("container");
 const keys=document.querySelectorAll('[data-key]');
+const dot = document.getElementById('dot')
 const operatorsbtn=document.querySelectorAll('[data-operator]');
 const lastScreen=document.querySelector(".lastScreen");
 const currentScreen=document.querySelector(".currentScreen");
@@ -13,13 +13,15 @@ const plus=document.getElementById("plus");
 const minus=document.getElementById("subtract");
 const dividee=document.getElementById("divide");
 const clearBtn=document.getElementById("ClearBtn");
-const deleteScreen=document.getElementById("Delete");
+const deleteBtn=document.getElementById("DeleteBtn");
 let firstOperand='';
 let secondOperand='';
 let operates=null;
 
 equals.addEventListener('click', eval)
+dot.addEventListener('click', displayDot)
 clearBtn.addEventListener('click', resetScreen)
+deleteBtn.addEventListener('click',deleteEntry)
 keys.forEach((button) =>
   button.addEventListener('click', () => displayNumbers(button.textContent))
 )
@@ -50,6 +52,12 @@ function displayNumbers(number){
      currentScreen.textContent += number
 
 }
+function displayDot() {
+  if (currentScreen.textContent === '')
+  currentScreen.textContent = '0'
+  if (currentScreen.textContent.includes('.')) return
+  currentScreen.textContent += '.'
+}
 
 function displayOperators(operators){
   operates=operators
@@ -64,10 +72,39 @@ currentScreen.textContent='';
 lastScreen.textContent='';
  
 }
-function deleteEntry(){
-// if(currentScreen.textContent!=null){
-//   cu
+function keyboardEntry(e){
+ 
+  if((e.key)>=0&&(e.key)<=9){
+    displayNumbers(e.key);
 }
+else if(e.key==='/'||e.key==='+'||e.key==='x'||e.key==='-'){
+displayOperators(e.key);
+}
+else if(e.key==='Enter'){
+  eval();
+}
+else if(e.key==='Backspace'){
+  deleteEntry()
+}
+else if(e.key==='Delete')
+{
+  resetScreen();
+}
+else if(e.key==='.'){
+  displayDot()
+}
+  else return;
+}
+window.addEventListener("keydown", keyboardEntry)
+function deleteEntry(){
+  // firstOperand=currentScreen.textContent;
+  if(currentScreen.textContent!=''){
+  currentScreen.textContent= currentScreen.textContent.slice(0, -2)
+  }
+  else {
+    lastScreen.textContent=lastScreen.textContent.slice(0, -1)
+  }
+  }
 function roundDecimal(num){
   return Math.round(num * 100) / 100
 }
@@ -108,4 +145,3 @@ else{
 }
 
 }
-
