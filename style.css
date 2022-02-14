@@ -1,0 +1,95 @@
+.headerContainer{
+    margin-top: 1em;
+    margin: auto;
+    height: 83vh;
+    width: 20vw;
+    border-radius: 8px;
+}
+#container {
+   
+    background-color: grey;
+    box-shadow: 4px 6px 16px 3px rgba(0, 0, 0, 0.55);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        grid-auto-rows: 90px;
+        border: solid black 1px;
+        padding: 5px; 
+        border-radius: 8px;
+}
+.lastScreen {
+    margin-top: 1em;
+    font-size: 30px;
+    align-self: start;
+    overflow: hidden;
+    white-space: nowrap;
+    
+}
+.contain{
+    display: grid;
+    height: 10vh;
+    width: 18.5vw;
+    box-shadow: 4px 6px 16px 3px rgba(0, 0, 0, 0.55); 
+    border-radius: 8px;
+     border: 10px solid lightgrey;
+     padding: 5px; 
+    justify-items: end;
+    background-color: white;
+}
+.currentScreen {
+    margin-top: 1em;
+    font-size: 30px;
+    align-self: end;
+    overflow: hidden;    
+}
+#ClearBtn{
+    height: 8.5vh;
+        background-color: lavender; 
+        color: black;       
+}
+#DeleteBtn{
+    height: 8.5vh;
+    background-color: red; 
+        color: black; 
+
+}
+.button {
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+#delete {
+    padding: 5px; 
+    margin-top: 1em;
+    margin: auto;
+    /* display: grid; */
+    height: 9.5vh;
+    width: 19.7vw;
+    background-color: grey;
+    box-shadow: 4px 6px 16px 3px rgba(0, 0, 0, 0.55);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        grid-auto-rows: 100px;
+        margin-bottom: 0.0001em;   
+        border-radius: 8px;
+    
+}
+
+#display{
+    width:20vw;
+    border-radius: 8px;
+}
+
+body{
+    display: block;
+    margin: 8px;
+  }
